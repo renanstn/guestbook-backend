@@ -1,5 +1,7 @@
+from email.policy import default
 import os
 from pathlib import Path
+from threading import local
 
 import dj_database_url
 from decouple import config
@@ -96,3 +98,9 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
     ]
 }
+
+ON_HEROKU = config("ON_HEROKU", cast=bool, default=False)
+
+if ON_HEROKU:
+    import django_heroku
+    django_heroku.settings(locals())

@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 dj-database-url = "*"
 djangorestframework = "*"
 gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 black = "*"
