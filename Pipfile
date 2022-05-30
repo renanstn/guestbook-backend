@@ -11,6 +11,7 @@ dj-database-url = "*"
 djangorestframework = "*"
 gunicorn = "*"
 django-heroku = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 black = "*"

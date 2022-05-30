@@ -12,7 +12,15 @@ SECRET_KEY = config("SECRET_KEY", default="IT'S A SECRET!")
 
 DEBUG = config("DEBUG", cast=bool, default=False)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
+
+CORS_ALLOWED_ORIGINS = config(
+    "CORS_ALLOWED_ORIGINS",
+    cast=lambda value: [origin.strip() for origin in value.split(",")]
+    if value
+    else "",
+    default="",
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -22,12 +30,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "corsheaders",
     "core",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -103,4 +113,5 @@ ON_HEROKU = config("ON_HEROKU", cast=bool, default=False)
 
 if ON_HEROKU:
     import django_heroku
+
     django_heroku.settings(locals())
