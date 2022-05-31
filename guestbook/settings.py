@@ -10,7 +10,7 @@ SECRET_KEY = config("SECRET_KEY", default="IT'S A SECRET!")
 
 DEBUG = config("DEBUG", cast=bool, default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = config(
     "CORS_ALLOWED_ORIGINS",
