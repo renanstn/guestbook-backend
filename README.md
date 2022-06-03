@@ -21,5 +21,6 @@ docker-compose up
 ```
 
 Acesse em seu browser:
+
 - `http://localhost`
 - `http://localhost/admin`
