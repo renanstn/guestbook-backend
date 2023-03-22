@@ -12,7 +12,6 @@ djangorestframework = "*"
 gunicorn = "*"
 django-heroku = "*"
 django-cors-headers = "*"
-whitenoise = "*"
 
 [dev-packages]
 black = "*"
