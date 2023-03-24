@@ -5,7 +5,7 @@ from core.urls import router as core_router
 
 
 urlpatterns = [
-    path("api/", include(core_router.urls)),
-    path("", admin.site.urls),
+    path("", include(core_router.urls)),
+    path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
 ]
