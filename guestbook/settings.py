@@ -10,8 +10,12 @@ SECRET_KEY = config("SECRET_KEY", default="IT'S A SECRET!")
 
 DEBUG = config("DEBUG", cast=bool, default=False)
 
-ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(
-    ","
+ALLOWED_HOSTS = config(
+    "DJANGO_ALLOWED_HOSTS",
+    default="127.0.0.1,localhost",
+    cast=lambda value: [origin.strip() for origin in value.split(",")]
+    if value
+    else "",
 )
 
 CORS_ALLOWED_ORIGINS = config(
