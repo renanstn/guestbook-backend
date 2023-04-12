@@ -20,6 +20,6 @@ if [ "$ENVIRONMENT" = "development" ]; then
 
 elif [ "$ENVIRONMENT" = "production" ]; then
     gunicorn \
-        --bind 0.0.0.0:8000 \
+        --bind 0.0.0.0:$PORT \
         guestbook.wsgi
 fi
